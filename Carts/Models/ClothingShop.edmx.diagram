@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="312711fde07e4d459b26344032d2af88" Name="Diagram1" ZoomLevel="107">
+        <EntityTypeShape EntityType="Demo.CartsModel.CLOTHES" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.COMMENTs" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.MEMBERs" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.ORDER_ITEM" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.ORDER_LIST" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.SHOPPING_CART" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.STORAGE_LIST" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Demo.CartsModel.TRACE_LIST" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="Demo.CartsModel.FK__COMMENT__Clothes__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__ORDER_ITE__Cloth__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__STRAGE_LI__Cloth__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__TRACE_LIS__Cloth__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__COMMENT__MemberI__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__ORDER_LIS__Membe__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__STRAGE_LI__Membe__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__TRACE_LIS__Membe__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="Demo.CartsModel.FK__ORDER_ITE__Order__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

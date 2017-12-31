@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Demo.CartsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DemoCartsModelStoreContainer">
+    <EntitySet Name="CLOTHES" EntityType="Demo.CartsModel.Store.CLOTHES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMMENTs" EntityType="Demo.CartsModel.Store.COMMENTs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MEMBERs" EntityType="Demo.CartsModel.Store.MEMBERs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ORDER_ITEM" EntityType="Demo.CartsModel.Store.ORDER_ITEM" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ORDER_LIST" EntityType="Demo.CartsModel.Store.ORDER_LIST" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SHOPPING_CART" EntityType="Demo.CartsModel.Store.SHOPPING_CART" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STRAGE_LIST" EntityType="Demo.CartsModel.Store.STRAGE_LIST" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TRACE_LIST" EntityType="Demo.CartsModel.Store.TRACE_LIST" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__COMMENT__Clothes__2A4B4B5E" Association="Demo.CartsModel.Store.FK__COMMENT__Clothes__2A4B4B5E">
+      <End Role="CLOTHES" EntitySet="CLOTHES" />
+      <End Role="COMMENTs" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_ITE__Cloth__32E0915F" Association="Demo.CartsModel.Store.FK__ORDER_ITE__Cloth__32E0915F">
+      <End Role="CLOTHES" EntitySet="CLOTHES" />
+      <End Role="ORDER_ITEM" EntitySet="ORDER_ITEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STRAGE_LI__Cloth__36B12243" Association="Demo.CartsModel.Store.FK__STRAGE_LI__Cloth__36B12243">
+      <End Role="CLOTHES" EntitySet="CLOTHES" />
+      <End Role="STRAGE_LIST" EntitySet="STRAGE_LIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRACE_LIS__Cloth__3A81B327" Association="Demo.CartsModel.Store.FK__TRACE_LIS__Cloth__3A81B327">
+      <End Role="CLOTHES" EntitySet="CLOTHES" />
+      <End Role="TRACE_LIST" EntitySet="TRACE_LIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT__MemberI__29572725" Association="Demo.CartsModel.Store.FK__COMMENT__MemberI__29572725">
+      <End Role="MEMBERs" EntitySet="MEMBERs" />
+      <End Role="COMMENTs" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_LIS__Membe__2F10007B" Association="Demo.CartsModel.Store.FK__ORDER_LIS__Membe__2F10007B">
+      <End Role="MEMBERs" EntitySet="MEMBERs" />
+      <End Role="ORDER_LIST" EntitySet="ORDER_LIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STRAGE_LI__Membe__35BCFE0A" Association="Demo.CartsModel.Store.FK__STRAGE_LI__Membe__35BCFE0A">
+      <End Role="MEMBERs" EntitySet="MEMBERs" />
+      <End Role="STRAGE_LIST" EntitySet="STRAGE_LIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRACE_LIS__Membe__398D8EEE" Association="Demo.CartsModel.Store.FK__TRACE_LIS__Membe__398D8EEE">
+      <End Role="MEMBERs" EntitySet="MEMBERs" />
+      <End Role="TRACE_LIST" EntitySet="TRACE_LIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_ITE__Order__31EC6D26" Association="Demo.CartsModel.Store.FK__ORDER_ITE__Order__31EC6D26">
+      <End Role="ORDER_LIST" EntitySet="ORDER_LIST" />
+      <End Role="ORDER_ITEM" EntitySet="ORDER_ITEM" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CLOTHES">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="ClickCount" Type="int" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="Cost_per_unit" Type="int" Nullable="true" />
+    <Property Name="Barcode" Type="int" Nullable="false" />
+    <Property Name="Tag_name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Brand_name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Size" Type="varchar(max)" Nullable="false" />
+    <Property Name="Manufacture_name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Color" Type="varchar(max)" Nullable="false" />
+    <Property Name="Style" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMMENTs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="ClothesId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+    <Property Name="Stars" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEMBERs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FName" Type="varchar(max)" Nullable="false" />
+    <Property Name="LName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Account" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar(max)" Nullable="false" />
+    <Property Name="Sex" Type="varchar(max)" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+    <Property Name="Class" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_ITEM">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="ClothesId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ClothesId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_LIST">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+    <Property Name="State" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SHOPPING_CART">
+    <Key>
+      <PropertyRef Name="MemberId" />
+      <PropertyRef Name="ClothesId" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="ClothesId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STRAGE_LIST">
+    <Key>
+      <PropertyRef Name="MemberId" />
+      <PropertyRef Name="ClothesId" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="ClothesId" Type="int" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRACE_LIST">
+    <Key>
+      <PropertyRef Name="MemberId" />
+      <PropertyRef Name="ClothesId" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="ClothesId" Type="int" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__COMMENT__Clothes__2A4B4B5E">
+    <End Role="CLOTHES" Type="Demo.CartsModel.Store.CLOTHES" Multiplicity="1" />
+    <End Role="COMMENTs" Type="Demo.CartsModel.Store.COMMENTs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLOTHES">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COMMENTs">
+        <PropertyRef Name="ClothesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_ITE__Cloth__32E0915F">
+    <End Role="CLOTHES" Type="Demo.CartsModel.Store.CLOTHES" Multiplicity="1" />
+    <End Role="ORDER_ITEM" Type="Demo.CartsModel.Store.ORDER_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLOTHES">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_ITEM">
+        <PropertyRef Name="ClothesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STRAGE_LI__Cloth__36B12243">
+    <End Role="CLOTHES" Type="Demo.CartsModel.Store.CLOTHES" Multiplicity="1" />
+    <End Role="STRAGE_LIST" Type="Demo.CartsModel.Store.STRAGE_LIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLOTHES">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="STRAGE_LIST">
+        <PropertyRef Name="ClothesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRACE_LIS__Cloth__3A81B327">
+    <End Role="CLOTHES" Type="Demo.CartsModel.Store.CLOTHES" Multiplicity="1" />
+    <End Role="TRACE_LIST" Type="Demo.CartsModel.Store.TRACE_LIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLOTHES">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TRACE_LIST">
+        <PropertyRef Name="ClothesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT__MemberI__29572725">
+    <End Role="MEMBERs" Type="Demo.CartsModel.Store.MEMBERs" Multiplicity="1" />
+    <End Role="COMMENTs" Type="Demo.CartsModel.Store.COMMENTs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBERs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COMMENTs">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_LIS__Membe__2F10007B">
+    <End Role="MEMBERs" Type="Demo.CartsModel.Store.MEMBERs" Multiplicity="1" />
+    <End Role="ORDER_LIST" Type="Demo.CartsModel.Store.ORDER_LIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBERs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_LIST">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STRAGE_LI__Membe__35BCFE0A">
+    <End Role="MEMBERs" Type="Demo.CartsModel.Store.MEMBERs" Multiplicity="1" />
+    <End Role="STRAGE_LIST" Type="Demo.CartsModel.Store.STRAGE_LIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBERs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="STRAGE_LIST">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRACE_LIS__Membe__398D8EEE">
+    <End Role="MEMBERs" Type="Demo.CartsModel.Store.MEMBERs" Multiplicity="1" />
+    <End Role="TRACE_LIST" Type="Demo.CartsModel.Store.TRACE_LIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMBERs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TRACE_LIST">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_ITE__Order__31EC6D26">
+    <End Role="ORDER_LIST" Type="Demo.CartsModel.Store.ORDER_LIST" Multiplicity="1" />
+    <End Role="ORDER_ITEM" Type="Demo.CartsModel.Store.ORDER_ITEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_LIST">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDER_ITEM">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Demo.CartsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLOTHES">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ClickCount" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Cost_per_unit" Type="Int32" />
+          <Property Name="Barcode" Type="Int32" Nullable="false" />
+          <Property Name="Tag_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Brand_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Manufacture_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Style" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__Clothes__2A4B4B5E" FromRole="CLOTHES" ToRole="COMMENTs" />
+          <NavigationProperty Name="ORDER_ITEM" Relationship="Self.FK__ORDER_ITE__Cloth__32E0915F" FromRole="CLOTHES" ToRole="ORDER_ITEM" />
+          <NavigationProperty Name="STRAGE_LIST" Relationship="Self.FK__STRAGE_LI__Cloth__36B12243" FromRole="CLOTHES" ToRole="STRAGE_LIST" />
+          <NavigationProperty Name="TRACE_LIST" Relationship="Self.FK__TRACE_LIS__Cloth__3A81B327" FromRole="CLOTHES" ToRole="TRACE_LIST" />
+        </EntityType>
+        <EntityType Name="COMMENTs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="ClothesId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Stars" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLOTHES" Relationship="Self.FK__COMMENT__Clothes__2A4B4B5E" FromRole="COMMENTs" ToRole="CLOTHES" />
+          <NavigationProperty Name="MEMBERs" Relationship="Self.FK__COMMENT__MemberI__29572725" FromRole="COMMENTs" ToRole="MEMBERs" />
+        </EntityType>
+        <EntityType Name="MEMBERs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Credit" Type="Int32" Nullable="false" />
+          <Property Name="Class" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__MemberI__29572725" FromRole="MEMBERs" ToRole="COMMENTs" />
+          <NavigationProperty Name="ORDER_LIST" Relationship="Self.FK__ORDER_LIS__Membe__2F10007B" FromRole="MEMBERs" ToRole="ORDER_LIST" />
+          <NavigationProperty Name="STRAGE_LIST" Relationship="Self.FK__STRAGE_LI__Membe__35BCFE0A" FromRole="MEMBERs" ToRole="STRAGE_LIST" />
+          <NavigationProperty Name="TRACE_LIST" Relationship="Self.FK__TRACE_LIS__Membe__398D8EEE" FromRole="MEMBERs" ToRole="TRACE_LIST" />
+        </EntityType>
+        <EntityType Name="ORDER_ITEM">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="ClothesId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ClothesId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLOTHES" Relationship="Self.FK__ORDER_ITE__Cloth__32E0915F" FromRole="ORDER_ITEM" ToRole="CLOTHES" />
+          <NavigationProperty Name="ORDER_LIST" Relationship="Self.FK__ORDER_ITE__Order__31EC6D26" FromRole="ORDER_ITEM" ToRole="ORDER_LIST" />
+        </EntityType>
+        <EntityType Name="ORDER_LIST">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MEMBERs" Relationship="Self.FK__ORDER_LIS__Membe__2F10007B" FromRole="ORDER_LIST" ToRole="MEMBERs" />
+          <NavigationProperty Name="ORDER_ITEM" Relationship="Self.FK__ORDER_ITE__Order__31EC6D26" FromRole="ORDER_LIST" ToRole="ORDER_ITEM" />
+        </EntityType>
+        <EntityType Name="SHOPPING_CART">
+          <Key>
+            <PropertyRef Name="MemberId" />
+            <PropertyRef Name="ClothesId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="ClothesId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STORAGE_LIST">
+          <Key>
+            <PropertyRef Name="MemberId" />
+            <PropertyRef Name="ClothesId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="ClothesId" Type="Int32" Nullable="false" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLOTHES" Relationship="Self.FK__STRAGE_LI__Cloth__36B12243" FromRole="STRAGE_LIST" ToRole="CLOTHES" />
+          <NavigationProperty Name="MEMBERs" Relationship="Self.FK__STRAGE_LI__Membe__35BCFE0A" FromRole="STRAGE_LIST" ToRole="MEMBERs" />
+        </EntityType>
+        <EntityType Name="TRACE_LIST">
+          <Key>
+            <PropertyRef Name="MemberId" />
+            <PropertyRef Name="ClothesId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="ClothesId" Type="Int32" Nullable="false" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CLOTHES" Relationship="Self.FK__TRACE_LIS__Cloth__3A81B327" FromRole="TRACE_LIST" ToRole="CLOTHES" />
+          <NavigationProperty Name="MEMBERs" Relationship="Self.FK__TRACE_LIS__Membe__398D8EEE" FromRole="TRACE_LIST" ToRole="MEMBERs" />
+        </EntityType>
+        <Association Name="FK__COMMENT__Clothes__2A4B4B5E">
+          <End Role="CLOTHES" Type="Self.CLOTHES" Multiplicity="1" />
+          <End Role="COMMENTs" Type="Self.COMMENTs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOTHES">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="COMMENTs">
+              <PropertyRef Name="ClothesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDER_ITE__Cloth__32E0915F">
+          <End Role="CLOTHES" Type="Self.CLOTHES" Multiplicity="1" />
+          <End Role="ORDER_ITEM" Type="Self.ORDER_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOTHES">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDER_ITEM">
+              <PropertyRef Name="ClothesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STRAGE_LI__Cloth__36B12243">
+          <End Role="CLOTHES" Type="Self.CLOTHES" Multiplicity="1" />
+          <End Role="STRAGE_LIST" Type="Demo.CartsModel.STORAGE_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOTHES">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="STRAGE_LIST">
+              <PropertyRef Name="ClothesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRACE_LIS__Cloth__3A81B327">
+          <End Role="CLOTHES" Type="Self.CLOTHES" Multiplicity="1" />
+          <End Role="TRACE_LIST" Type="Self.TRACE_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOTHES">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRACE_LIST">
+              <PropertyRef Name="ClothesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMMENT__MemberI__29572725">
+          <End Role="MEMBERs" Type="Self.MEMBERs" Multiplicity="1" />
+          <End Role="COMMENTs" Type="Self.COMMENTs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMBERs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="COMMENTs">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDER_LIS__Membe__2F10007B">
+          <End Role="MEMBERs" Type="Self.MEMBERs" Multiplicity="1" />
+          <End Role="ORDER_LIST" Type="Self.ORDER_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMBERs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDER_LIST">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STRAGE_LI__Membe__35BCFE0A">
+          <End Role="MEMBERs" Type="Self.MEMBERs" Multiplicity="1" />
+          <End Role="STRAGE_LIST" Type="Demo.CartsModel.STORAGE_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMBERs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="STRAGE_LIST">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRACE_LIS__Membe__398D8EEE">
+          <End Role="MEMBERs" Type="Self.MEMBERs" Multiplicity="1" />
+          <End Role="TRACE_LIST" Type="Self.TRACE_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMBERs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TRACE_LIST">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDER_ITE__Order__31EC6D26">
+          <End Role="ORDER_LIST" Type="Self.ORDER_LIST" Multiplicity="1" />
+          <End Role="ORDER_ITEM" Type="Self.ORDER_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_LIST">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDER_ITEM">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLOTHES" EntityType="Self.CLOTHES" />
+          <EntitySet Name="COMMENTs" EntityType="Self.COMMENTs" />
+          <EntitySet Name="MEMBERs" EntityType="Self.MEMBERs" />
+          <EntitySet Name="ORDER_ITEM" EntityType="Self.ORDER_ITEM" />
+          <EntitySet Name="ORDER_LIST" EntityType="Self.ORDER_LIST" />
+          <EntitySet Name="SHOPPING_CART" EntityType="Self.SHOPPING_CART" />
+          <EntitySet Name="STRAGE_LIST" EntityType="Demo.CartsModel.STORAGE_LIST" />
+          <EntitySet Name="TRACE_LIST" EntityType="Self.TRACE_LIST" />
+          <AssociationSet Name="FK__COMMENT__Clothes__2A4B4B5E" Association="Self.FK__COMMENT__Clothes__2A4B4B5E">
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+            <End Role="COMMENTs" EntitySet="COMMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDER_ITE__Cloth__32E0915F" Association="Self.FK__ORDER_ITE__Cloth__32E0915F">
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+            <End Role="ORDER_ITEM" EntitySet="ORDER_ITEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STRAGE_LI__Cloth__36B12243" Association="Self.FK__STRAGE_LI__Cloth__36B12243">
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+            <End Role="STRAGE_LIST" EntitySet="STRAGE_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRACE_LIS__Cloth__3A81B327" Association="Self.FK__TRACE_LIS__Cloth__3A81B327">
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+            <End Role="TRACE_LIST" EntitySet="TRACE_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMMENT__MemberI__29572725" Association="Self.FK__COMMENT__MemberI__29572725">
+            <End Role="MEMBERs" EntitySet="MEMBERs" />
+            <End Role="COMMENTs" EntitySet="COMMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDER_LIS__Membe__2F10007B" Association="Self.FK__ORDER_LIS__Membe__2F10007B">
+            <End Role="MEMBERs" EntitySet="MEMBERs" />
+            <End Role="ORDER_LIST" EntitySet="ORDER_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STRAGE_LI__Membe__35BCFE0A" Association="Self.FK__STRAGE_LI__Membe__35BCFE0A">
+            <End Role="MEMBERs" EntitySet="MEMBERs" />
+            <End Role="STRAGE_LIST" EntitySet="STRAGE_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRACE_LIS__Membe__398D8EEE" Association="Self.FK__TRACE_LIS__Membe__398D8EEE">
+            <End Role="MEMBERs" EntitySet="MEMBERs" />
+            <End Role="TRACE_LIST" EntitySet="TRACE_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDER_ITE__Order__31EC6D26" Association="Self.FK__ORDER_ITE__Order__31EC6D26">
+            <End Role="ORDER_LIST" EntitySet="ORDER_LIST" />
+            <End Role="ORDER_ITEM" EntitySet="ORDER_ITEM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DemoCartsModelStoreContainer" CdmEntityContainer="ShopEntities">
+    <EntitySetMapping Name="CLOTHES">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.CLOTHES)">
+        <MappingFragment StoreEntitySet="CLOTHES">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Cost_per_unit" ColumnName="Cost_per_unit" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Tag_name" ColumnName="Tag_name" />
+          <ScalarProperty Name="Brand_name" ColumnName="Brand_name" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Manufacture_name" ColumnName="Manufacture_name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMMENTs">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.COMMENTs)">
+        <MappingFragment StoreEntitySet="COMMENTs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEMBERs">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.MEMBERs)">
+        <MappingFragment StoreEntitySet="MEMBERs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_ITEM">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.ORDER_ITEM)">
+        <MappingFragment StoreEntitySet="ORDER_ITEM">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_LIST">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.ORDER_LIST)">
+        <MappingFragment StoreEntitySet="ORDER_LIST">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHOPPING_CART">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.SHOPPING_CART)">
+        <MappingFragment StoreEntitySet="SHOPPING_CART">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STRAGE_LIST">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.STORAGE_LIST)">
+        <MappingFragment StoreEntitySet="STRAGE_LIST">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRACE_LIST">
+      <EntityTypeMapping TypeName="IsTypeOf(Demo.CartsModel.TRACE_LIST)">
+        <MappingFragment StoreEntitySet="TRACE_LIST">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
